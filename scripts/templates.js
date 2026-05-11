@@ -1388,7 +1388,7 @@ function renderCapabilityArchive(detail, project) {
   `;
 }
 
-/* ========== 原创设计作品展示轮播数据与渲染 ========== */
+/* ========== 个人设计作品展示轮播数据与渲染 ========== */
 const originalDesignSlides = [
   { index: "01", title: "《彝娘》", subtitle: "YI NIANG", image: "./assets/original-design/yiniang/original-design-work-yiniang-01.png" },
   { index: "02", title: "《新秦制》", subtitle: "NEW QIN SYSTEM", image: "./assets/original-design/xinqinzhi/original-design-work-new-qin-01.png" },
@@ -1399,11 +1399,11 @@ const originalDesignSlides = [
 
 function renderOriginalDesignShowcase() {
   return `
-    <section class="original-showcase-section full-bleed" id="originalDesignShowcase" aria-label="原创设计作品展示" data-reveal>
+    <section class="original-showcase-section full-bleed" id="originalDesignShowcase" aria-label="个人设计作品展示" data-reveal>
       <div class="project-section-inner">
         <div class="original-showcase-heading">
-          <span>ORIGINAL DESIGN ARCHIVE</span>
-          <h2>原创设计作品展示</h2>
+          <span>PERSONAL DESIGN ARCHIVE</span>
+          <h2>个人设计作品展示</h2>
         </div>
       </div>
 
