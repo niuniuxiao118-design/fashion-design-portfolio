@@ -506,6 +506,23 @@ body.project-page .carousel-row.row-bottom {
   padding-left: clamp(28px, 5vw, 72px);
 }
 
+/* Mobile: ensure carousel animation runs with GPU compositing */
+body.project-page .carousel-track {
+  -webkit-animation: chillCarouselLeft 58s linear infinite !important;
+          animation: chillCarouselLeft 58s linear infinite !important;
+  -webkit-animation-play-state: running !important;
+          animation-play-state: running !important;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+body.project-page .carousel-track.reverse {
+  -webkit-animation: chillCarouselRight 68s linear infinite !important;
+          animation: chillCarouselRight 68s linear infinite !important;
+  -webkit-animation-play-state: running !important;
+          animation-play-state: running !important;
+}
+
 body.project-page .carousel-card {
   width: clamp(150px, 16vw, 220px) !important;
   height: clamp(124px, 12vw, 168px) !important;

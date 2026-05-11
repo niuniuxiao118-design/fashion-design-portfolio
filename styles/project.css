@@ -905,16 +905,19 @@ body.project-page .carousel-row.row-bottom {
 body.project-page .carousel-track {
   width: max-content;
   display: flex;
-  animation: chillCarouselLeft 58s linear infinite;
+  -webkit-animation: chillCarouselLeft 58s linear infinite;
+          animation: chillCarouselLeft 58s linear infinite;
   will-change: transform;
 }
 
 body.project-page .carousel-track.reverse {
-  animation: chillCarouselRight 68s linear infinite;
+  -webkit-animation: chillCarouselRight 68s linear infinite;
+          animation: chillCarouselRight 68s linear infinite;
 }
 
 body.project-page .two-row-carousel-viewport:hover .carousel-track {
-  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
 }
 
 body.project-page .carousel-set {
@@ -967,30 +970,37 @@ body.project-page .carousel-card:hover img {
 
 @keyframes chillCarouselLeft {
   from {
-    transform: translateX(0);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes chillCarouselRight {
   from {
-    transform: translateX(-50%);
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
   }
 
   to {
-    transform: translateX(0);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   body.project-page .carousel-track,
   body.project-page .carousel-track.reverse {
-    animation-duration: 1ms;
-    animation-iteration-count: 1;
-    transform: translateX(0);
+    -webkit-animation-duration: 1ms;
+            animation-duration: 1ms;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
 
   body.project-page .carousel-card,
