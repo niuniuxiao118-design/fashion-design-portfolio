@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MYI | Bauhaus Portfolio</title>
+    <link rel="stylesheet" href="./styles/base.css?v=20260511-arch" />
+    <link rel="stylesheet" href="./styles/home.css?v=20260511-arch" />
+    <link rel="stylesheet" href="./styles/project.css?v=20260511-arch" />
+    <link rel="stylesheet" href="./styles/responsive.css?v=20260511-arch" />
+    <style>
+.breathing-glow-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: #050508;
+  pointer-events: none;
+  cursor: default;
+}
+
+.home-hero {
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: clamp(100px, 14vh, 150px);
+  background: transparent;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(247, 239, 228, 0.12);
+}
+
+.home-hero::before {
+  inset: 0;
+  z-index: 1;
+  opacity: 1;
+  background:
+    linear-gradient(90deg, rgba(5, 5, 8, 0.96) 0%, transparent 12%, transparent 88%, rgba(5, 5, 8, 0.96) 100%),
+    radial-gradient(ellipse at 50% 0%, rgba(5, 5, 8, 0.88) 0%, transparent 38%);
+  filter: none;
+  mask-image: none;
+  pointer-events: none;
+}
+
+.home-hero::after {
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(5, 5, 8, 0) 0%, transparent 62%, rgba(5, 5, 8, 0.98) 100%),
+    radial-gradient(ellipse at 50% 100%, rgba(5, 5, 8, 0.92) 0%, transparent 52%);
+  pointer-events: none;
+}
+
+.home-hero-video {
+  display: none;
+}
+
+.home-hero-tags {
+  z-index: 30;
+  pointer-events: auto;
+  isolation: isolate;
+}
+
+.home-hero-tag {
+  z-index: 1;
+  pointer-events: auto;
+  padding: 7px 12px 9px;
+  border-radius: 14px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              color 0.35s ease,
+              text-shadow 0.35s ease,
+              opacity 0.35s ease,
+              letter-spacing 0.3s ease,
+              background 0.35s ease,
+              box-shadow 0.35s ease,
+              filter 0.35s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.home-hero-tag::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(247, 239, 228, 0.85), rgba(168, 85, 247, 0.82), rgba(236, 72, 153, 0.78), transparent);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.home-hero-tag:hover,
+.home-hero-tag:focus-visible {
+  z-index: 3;
+  transform: translateY(-4px) scale(1.12);
+  color: rgba(247, 239, 228, 1) !important;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(247, 239, 228, 0.18), rgba(168, 85, 247, 0.10) 44%, rgba(3, 3, 3, 0.10) 100%);
+  box-shadow:
+    0 0 28px rgba(168, 85, 247, 0.26),
+    0 0 52px rgba(236, 72, 153, 0.18);
+  filter: brightness(1.35) saturate(1.08);
+  text-shadow:
+    0 0 12px rgba(247, 239, 228, 0.45),
+    0 0 25px rgba(168, 85, 247, 0.45),
+    0 0 50px rgba(236, 72, 153, 0.28),
+    0 0 80px rgba(255, 154, 139, 0.18);
+  opacity: 1 !important;
+  letter-spacing: 0.04em;
+}
+
+.home-hero-tag:hover::after,
+.home-hero-tag:focus-visible::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.home-hero-tag:hover .tag-cn,
+.home-hero-tag:focus-visible .tag-cn {
+  font-weight: 500;
+}
+
+.home-hero-tag:hover .tag-en,
+.home-hero-tag:focus-visible .tag-en {
+  opacity: 1 !important;
+}
+    </style>
+    <link rel="stylesheet" href="./styles/responsive.css?v=20260511-arch-late" />
+    <link rel="stylesheet" href="./styles/home.css?v=20260511-home-late" />
+  </head>
+  <body class="home-page">
+    <header class="site-header" data-reveal>
+      <a class="brand ripple-target" href="./index.html" aria-label="MYI home">
+        <span class="brand-mark"></span>
+        <span>MYI</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link ripple-target" href="./index.html#home">HOME</a>
+        <a class="nav-link ripple-target" href="./index.html#works">WORKS</a>
+        <a class="nav-link ripple-target" href="./index.html#my">ABOUT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero home-hero">
+        <canvas class="breathing-glow-canvas" id="glowCanvas" aria-hidden="true"></canvas>
+        <video class="home-hero-video" autoplay loop muted playsinline poster="./assets/home/hero/home-hero-poster-01.png">
+          <source src="./assets/home/hero/home-hero-video-01.mp4" type="video/mp4" />
+        </video>
+        <div class="home-hero-bg" aria-hidden="true"></div>
+        <figure class="home-portrait" data-reveal>
+          <img src="./assets/home/profile/home-hero-portrait-01.jpg" alt="DYK portrait" />
+          <figcaption>DESIGNER PROFILE / 2026</figcaption>
+        </figure>
+        <div class="home-hero-copy" data-reveal>
+          <p class="hero-pill"><span>服装设计作品集</span><em>Fashion Portfolio / 2026</em></p>
+          <h1>DYK<br />Portfolio</h1>
+          <div class="hero-summary">
+            <p>服装与服饰设计专业背景，聚焦原创设计、趋势分析、图样开发与系列企划。</p>
+            <p class="hero-summary-en">Fashion and accessories design background, focused on original design, trend research, pattern development, and collection planning.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="hero-button ripple-target" href="./index.html#works"><span>查看作品</span><em>View Works</em></a>
+            <a class="hero-link ripple-target" href="./index.html#my"><span>关于 MYI</span><em>About MYI</em></a>
+          </div>
+        </div>
+        <div class="home-hero-tags" data-reveal aria-label="Portfolio capability shortcuts">
+          <a class="home-hero-tag ripple-target" href="./project.html?id=sand-system">
+            <span class="tag-cn">针织专项设计</span>
+            <span class="tag-en">Specialized Knitwear Design</span>
+          </a>
+          <a class="home-hero-tag ripple-target" href="./project.html?id=urban-nomad">
+            <span class="tag-cn">商业女装系列开发</span>
+            <span class="tag-en">Commercial Womenswear Series Development</span>
+          </a>
+          <a class="home-hero-tag ripple-target" href="./project.html?id=relaxed-utility">
+            <span class="tag-cn">原创主题系列设计</span>
+            <span class="tag-en">Original Themed Collection Design</span>
+          </a>
+          <a class="home-hero-tag ripple-target" href="./project.html?id=stone-blue">
+            <span class="tag-cn">工作能力补充</span>
+            <span class="tag-en">Additional Professional Capabilities</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="works" class="works-section">
+        <div class="section-heading" data-reveal>
+          <p class="index-number">02 / WORKS</p>
+          <h2><span class="heading-cn">精选作品</span><span class="heading-en">Selected Projects</span></h2>
+        </div>
+        <div class="works-grid" id="worksGrid" aria-live="polite"></div>
+      </section>
+
+      <section id="my" class="about-section section-grid">
+        <div data-reveal>
+          <p class="index-number">03 / about me</p>
+          <h2><span class="heading-cn">关于我</span><span class="heading-en">About Me</span></h2>
+        </div>
+        <div class="about-copy" data-reveal>
+          <p class="copy-cn">
+            姓名：邓阳卡<br>
+            院校：中央民族大学<br>
+            专业：服装与服饰设计<br>
+            Email: 1601550608@qq.com<br>
+            Tel: 15585111269
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" data-reveal>
+      <span>CONTACT</span>
+      <a class="ripple-target" href="mailto:1601550608@qq.com">1601550608@qq.com</a>
+      <span>SHANGHAI / Preferred Work Location</span>
+    </footer>
+
+    <script>
+class ElegantGlowBackground {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.time = 0;
+    this.mouseX = 0;
+    this.mouseY = 0;
+    this.glowX = 0;
+    this.glowY = 0;
+    this.targetGlowX = 0;
+    this.targetGlowY = 0;
+    this.isMouseInGlow = false;
+    this.glowIntensity = 1;
+    this.targetIntensity = 1;
+    
+    this.baseColors = [
+      { r: 168, g: 85, b: 247, a: 0.32 },
+      { r: 236, g: 72, b: 153, a: 0.26 },
+      { r: 255, g: 154, b: 139, a: 0.20 }
+    ];
+    
+    this.init();
+  }
+
+  init() {
+    this.resize();
+    window.addEventListener('resize', () => this.resize());
+
+    const hero = this.canvas.closest('.home-hero') || this.canvas;
+    hero.addEventListener('pointermove', (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      this.mouseX = Math.max(0, Math.min(this.canvas.width, e.clientX - rect.left));
+      this.mouseY = Math.max(0, Math.min(this.canvas.height, e.clientY - rect.top));
+      this.targetGlowX = this.mouseX;
+      this.targetGlowY = this.mouseY;
+      this.isMouseInGlow = true;
+      this.targetIntensity = 1.55;
+    }, { passive: true });
+
+    hero.addEventListener('pointerleave', () => {
+      this.isMouseInGlow = false;
+      this.targetGlowX = this.canvas.width;
+      this.targetGlowY = this.canvas.height;
+      this.targetIntensity = 1;
+    });
+    
+    this.animate();
+  }
+
+  resize() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    const nativeX = this.canvas.width;
+    const nativeY = this.canvas.height;
+    if (!this.glowX && !this.glowY) {
+      this.glowX = nativeX;
+      this.glowY = nativeY;
+    }
+    if (!this.isMouseInGlow) {
+      this.targetGlowX = nativeX;
+      this.targetGlowY = nativeY;
+    }
+  }
+
+  animate() {
+    this.time += 0.0025;
+    
+    this.glowIntensity += (this.targetIntensity - this.glowIntensity) * 0.04;
+    
+    this.ctx.fillStyle = '#050508';
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    const breathPhase = Math.sin(this.time) * 0.5 + 0.5;
+    const baseOpacity = 0.28 + breathPhase * 0.18;
+    
+    const cornerX = this.canvas.width;
+    const cornerY = this.canvas.height;
+    if (!this.isMouseInGlow) {
+      this.targetGlowX = cornerX;
+      this.targetGlowY = cornerY;
+    }
+    this.glowX += (this.targetGlowX - this.glowX) * 0.075;
+    this.glowY += (this.targetGlowY - this.glowY) * 0.075;
+    const glowRadius = Math.min(this.canvas.width, this.canvas.height) * 
+      (0.48 + breathPhase * 0.12) * this.glowIntensity;
+    
+    this.baseColors.forEach((color, index) => {
+      const offset = index * 0.35;
+      const phase = Math.sin(this.time + offset) * 0.5 + 0.5;
+      const radius = glowRadius * (0.55 + phase * 0.45);
+      const opacity = color.a * baseOpacity * this.glowIntensity * (0.45 + phase * 0.55);
+      
+      const gradient = this.ctx.createRadialGradient(
+        this.glowX, this.glowY, 0,
+        this.glowX, this.glowY, radius
+      );
+      
+      gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`);
+      gradient.addColorStop(0.3, `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity * 0.65})`);
+      gradient.addColorStop(0.6, `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity * 0.3})`);
+      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      
+      this.ctx.fillStyle = gradient;
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    });
+    
+    if (this.isMouseInGlow) {
+      const mouseGlow = this.ctx.createRadialGradient(
+        this.mouseX, this.mouseY, 0,
+        this.mouseX, this.mouseY, 100
+      );
+      mouseGlow.addColorStop(0, 'rgba(255, 182, 193, 0.12)');
+      mouseGlow.addColorStop(0.5, 'rgba(221, 160, 221, 0.08)');
+      mouseGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      
+      this.ctx.fillStyle = mouseGlow;
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+    
+    const softGlow = this.ctx.createRadialGradient(
+      this.glowX, this.glowY, 0,
+      this.glowX, this.glowY, glowRadius * 0.35
+    );
+    const centerOpacity = 0.08 + breathPhase * 0.06;
+    softGlow.addColorStop(0, `rgba(255, 255, 240, ${centerOpacity * this.glowIntensity})`);
+    softGlow.addColorStop(0.5, `rgba(255, 228, 225, ${centerOpacity * 0.5 * this.glowIntensity})`);
+    softGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    
+    this.ctx.fillStyle = softGlow;
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const canvas = document.getElementById('glowCanvas');
+  if (canvas) {
+    new ElegantGlowBackground(canvas);
+  }
+});
+    </script>
+    <script src="./scripts/data.js?v=20260511-swapfix2"></script>
+    <script src="./scripts/templates.js?v=20260511-swapfix2"></script>
+    <script src="./scripts/interactions.js?v=20260511-swapfix2"></script>
+    <script src="./scripts/main.js?v=20260511-swapfix2"></script>
+  </body>
+</html>
