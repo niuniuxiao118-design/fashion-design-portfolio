@@ -817,6 +817,14 @@ function createRipple(target, event) {
 }
 
 function coverMarkup(project, large = false) {
+  if (project.cardImage && !large) {
+    return `
+      <div class="image-cover">
+        <img src="${project.cardImage}" alt="${project.title} cover" />
+      </div>
+    `;
+  }
+
   if (project.heroVideo && !large) {
     return `
       <div class="image-cover video-cover">

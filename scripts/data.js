@@ -13,6 +13,7 @@ const projects = [
     concept: "在秩序与自由之间寻找平衡，<br />以松弛的层次与中性色调<br />构建都市生活的自洽节奏。",
     conceptEn: "FINDING BALANCE BETWEEN ORDER AND FREEDOM,<br />BUILDING A SELF-CONSISTENT RHYTHMOF URBAN LIFE WITH RELAXED LAYERSAND NEUTRAL TONES.",
     cover: "./assets/covers/chill-city/cover-chill-city-01.png",
+    cardImage: "./assets/chill-city/hero/chill-hero-poster-01.png",
     heroVideo: "./assets/chill-city/hero/chill-hero-video-01.mp4",
     palette: []
   },
