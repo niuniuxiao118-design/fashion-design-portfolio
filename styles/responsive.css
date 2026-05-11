@@ -293,12 +293,23 @@ body.project-page .knit-analysis-header h2 {
 
 body.project-page .color-system-image,
 body.project-page .concept-image,
-body.project-page .chill-color-card,
 body.project-page .bulk-sales-card {
   width: 100% !important;
   max-width: 980px !important;
   margin-inline: auto !important;
   overflow: hidden !important;
+}
+
+/* CHILL color stack cards: fixed height for consistent sizing */
+body.project-page .chill-color-stack .chill-color-card {
+  width: 100% !important;
+  max-width: 980px !important;
+  margin-inline: auto !important;
+  overflow: hidden !important;
+  height: clamp(180px, 22vw, 280px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body.project-page .chill-color-stack,
@@ -311,11 +322,18 @@ body.project-page .bulk-sales-board {
 
 body.project-page .color-system-image img,
 body.project-page .concept-image img,
-body.project-page .chill-color-card img,
 body.project-page .bulk-sales-card img {
   width: 100% !important;
   height: auto !important;
   object-fit: contain !important;
+}
+
+/* CHILL color stack card images: fill fixed-height container */
+body.project-page .chill-color-stack .chill-color-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
 }
 
 body.project-page .chill-color-card,

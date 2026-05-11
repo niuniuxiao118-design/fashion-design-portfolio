@@ -2190,12 +2190,18 @@ body.project-page .chill-color-stack {
 
 body.project-page .chill-color-stack .chill-color-card {
   margin: 0;
+  width: 100%;
+  height: clamp(220px, 18vw, 340px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body.project-page .chill-color-stack .chill-color-card img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
+  object-position: center;
   display: block;
 }
 
@@ -3432,8 +3438,7 @@ body.project-page .feedback-media {
   overflow: hidden;
 }
 
-body.project-page .bulk-sales-card img,
-body.project-page .chill-color-stack .chill-color-card img {
+body.project-page .bulk-sales-card img {
   object-fit: contain !important;
   height: auto;
   max-height: clamp(180px, 20vw, 280px);
